@@ -1,3 +1,5 @@
+const VAPID_PUBLIC_KEY = 'BLm8h69t4K8GzWdbbxQwQ2SB5odmLVh3TfaR4Gpv0UYYQytV6M7Qwma_mprIsnGogMOS775mceYXgbY6BpvXTLA'
+
 export class NotificationService {
   static async requestPermission(): Promise<NotificationPermission> {
     if (!('Notification' in window)) {
@@ -29,18 +31,25 @@ export class NotificationService {
     }
   }
 
-  static async subscribeToNotifications(vapidKey: string): Promise<PushSubscription | null> {
+  static async subscribeToNotifications(): Promise<PushSubscription | null> {
     try {
       const registration = await navigator.serviceWorker.ready
       const subscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: this.urlBase64ToUint8Array(vapidKey),
+        applicationServerKey: this.urlBase64ToUint8Array(VAPID_PUBLIC_KEY),
       })
+      // Save subscription to localStorage for later use
+      localStorage.setItem('pushSubscription', JSON.stringify(subscription))
       return subscription
     } catch (error) {
       console.error('Push subscription failed:', error)
       return null
     }
+  }
+
+  static getPushSubscription(): PushSubscription | null {
+    const sub = localStorage.getItem('pushSubscription')
+    return sub ? JSON.parse(sub) : null
   }
 
   private static urlBase64ToUint8Array(base64String: string): BufferSource {
