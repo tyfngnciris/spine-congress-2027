@@ -9,6 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^7.6.7",
+    "@capacitor/cli": "^7.6.7",
+    "@capacitor/core": "^7.6.7",
+    "@capacitor/ios": "^7.6.7",
     "idb": "^8.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,5 +27,11 @@
     "tailwindcss": "^3.3.6",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
-  }
+  },
+  "description": "17. Uluslararası Türk Omurga Kongresi için profesyonel web uygulaması.",
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "types": "./vite.config.d.ts"
 }
