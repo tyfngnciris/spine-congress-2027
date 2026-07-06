@@ -16,6 +16,7 @@ import { Certificate } from './pages/Certificate'
 import { Guide } from './pages/Guide'
 import { Announcements } from './pages/Announcements'
 import { Admin } from './pages/Admin'
+import { Privacy } from './pages/Privacy'
 import { NotificationService } from './services/notificationService'
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
             <Route path="/kilavuz" element={<Guide />} />
             <Route path="/duyurular" element={<Announcements />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>
         <Footer />

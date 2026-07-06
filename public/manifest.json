@@ -22,13 +22,5 @@
       "purpose": "any"
     }
   ],
-  "categories": ["medical", "conference"],
-  "screenshots": [
-    {
-      "src": "/screenshot-540x720.png",
-      "sizes": "540x720",
-      "type": "image/png",
-      "form_factor": "narrow"
-    }
-  ]
+  "categories": ["medical", "conference"]
 }
