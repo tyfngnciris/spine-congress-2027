@@ -15,6 +15,7 @@ import { Shuttle } from './pages/Shuttle'
 import { Certificate } from './pages/Certificate'
 import { Guide } from './pages/Guide'
 import { Announcements } from './pages/Announcements'
+import { Admin } from './pages/Admin'
 import { NotificationService } from './services/notificationService'
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             <Route path="/sertifika" element={<Certificate />} />
             <Route path="/kilavuz" element={<Guide />} />
             <Route path="/duyurular" element={<Announcements />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>
         <Footer />
