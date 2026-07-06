@@ -1,12 +1,17 @@
 import { Handler } from '@netlify/functions'
-import webpush from 'web-push'
 
-// Configure web-push with VAPID keys
-webpush.setVapidDetails(
-  'mailto:naci@example.com',
-  process.env.VAPID_PUBLIC_KEY || '',
-  process.env.VAPID_PRIVATE_KEY || ''
-)
+// Configure web-push with VAPID keys (lazy load)
+let webpush: any
+try {
+  webpush = require('web-push')
+  webpush.setVapidDetails(
+    'mailto:naci@example.com',
+    process.env.VAPID_PUBLIC_KEY || '',
+    process.env.VAPID_PRIVATE_KEY || ''
+  )
+} catch (e) {
+  console.error('web-push setup error:', e)
+}
 
 interface NotificationPayload {
   title: string
